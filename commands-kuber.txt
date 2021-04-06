@@ -1,0 +1,312 @@
+    1  apt-get update
+    2  vim /etc/ssh/sshd_config
+    3  apt-get install     apt-transport-https     ca-certificates     curl     gnupg     lsb-release
+    4  docker --version
+    5  echo   "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+    6    $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    7  docker --version
+    8  systemctl enable docker
+    9  sudo reboot
+   10  apt-get update && sudo apt-get install -y apt-transport-https curl
+   11  curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+   12  cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
+   13  deb https://apt.kubernetes.io/ kubernetes-xenial main
+   14  EOF
+   15  apt-get update
+   16  apt-get install -y kubelet kubeadm kubectl
+   17  cd /etc/systemd/system/kubelet.service.d
+   18  vim 10-kubeadm.conf 
+   19  cd /
+   20  reboot
+   21  kubeadm init --apiserver-advertise-address=172.31.38.110 --ignore-preflight-errors=NumCPU
+   22  kubeadm join 172.31.38.110:6443 --token td45wy.o9cwi8zee9t5voph     --discovery-token-ca-cert-hash sha256:d88097909dfa30fd057b955da225c0bf1fd9b53d6c229fb215065317606c24b3
+   23  vim kube
+   24  vim kube.txt
+   25  mkdir -p $HOME/.kube
+   26  cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+   27  chown $(id -u):$(id -g) $HOME/.kube/config
+   28  exity
+   29  exiut
+   30  exit
+   31  kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+   32  kubectl get nodes
+   33  sudo service ufw stop
+   34  kube proxy &
+   35  kubectl proxy &
+   36  curl 127.0.0.1:8001
+   37  ls
+   38  exiyt
+   39  exit
+   40  kubectl get nodes
+   41  kubectl get pods
+   42  kubectl get pods -o wide --all-namespaces
+   43  kubectl get svc -o wide --all-namespaces
+   44  kubectl cluster info
+   45  kubectl cluster-info
+   46  kubectl get pods
+   47  kubectl get pods --show
+   48  kubectl get pods -o wide --all-namesacesp
+   49  kubectl get pods -o wide --all-namespaces
+   50  mkdir -m 777 manifest
+   51  ls -all
+   52  cd manifest/
+   53  LS
+   54  ll
+   55  ls -al
+   56  vim pod.yml
+   57  kubectl create -f pod.yml 
+   58  vim pod.yml 
+   59  kubectl create -f pod.yml 
+   60  vim pod.yml 
+   61  kubectl create -f pod.yml 
+   62  vim pod.yml 
+   63  kubectl create -f pod.yml 
+   64  vim pod.yml 
+   65  kubectl create -f pod.yml 
+   66  kubectl get nodes
+   67  kubectl get pods
+   68  kubectl get pods -o wide --all-namespaces
+   69  kubecctl describe pods
+   70  kubecctl describe pods pod
+   71  kubecctl describe pods pods
+   72  kubectl get pods -o wide --all-namespaces
+   73  kubectl describe pod1
+   74  kubectl get pods
+   75  kubectl get pod1
+   76  kubectl describe pods pod1
+   77  cd /var/run/
+   78  ls
+   79  cd mo
+   80  cd mount/
+   81  ls
+   82  cd /
+   83  ls
+   84  cd /home/ubuntu/manifest/
+   85  ls
+   86  vim pod2.yml
+   87  kubectl create -f pod2.yml 
+   88  kubectl get pods
+   89  kubectl describe pods pod2
+   90  kubectl
+   91  kubectl delete pods
+   92  kubectl delete pods pod1
+   93  kubectl delete pods pod2
+   94  kubectl get pods
+   95  kubectl get nodes
+   96  kubectl describe pods pod1
+   97  kubectl describe pods pod2
+   98  kubectl get pods
+   99  ls
+  100  exit
+  101  kubectl get nodes
+  102  kubectl get pods
+  103  history
+  104  kubectl get svc -o wide --all-namespaces
+  105  kubectl get svc clusterip
+  106  kubectl get svc 
+  107  caat pod
+  108  caat pod1
+  109  ls
+  110  cat pod.yml 
+  111  ls
+  112  cat pod2.yml 
+  113  kubectl create -f pod2.yml 
+  114  ls
+  115  kubectl get pods
+  116  vim service.yml
+  117  kubectl get pods
+  118  cat pod2.yml 
+  119  kubectl -f service.yml 
+  120  kubectl create -f service.yml 
+  121  vim service.yml 
+  122  kubectl create -f service.yml 
+  123  vim service.yml 
+  124  kubectl create -f service.yml 
+  125  kubectlget pods
+  126  kubectl get pods
+  127  kubectl get svc
+  128  kubectl describe pods pod
+  129  kubectl get pods
+  130  kubectl describe pods
+  131  kubectl hget svc
+  132  kubectl get svc
+  133  kubectl delete expose
+  134  kubectl delete svc expose
+  135  kubectlget svc
+  136  kubectl get svc
+  137  cat pod.yml 
+  138  cat pod2.yml 
+  139  vim service2.yml
+  140  kubectl create -f service2.yml 
+  141  vim service2.yml 
+  142  kubectl create -f service2.yml 
+  143  vim service2.yml 
+  144  kubectl create -f service2.yml 
+  145  caat service.yml 
+  146  cat service.yml 
+  147  cat service2.yml 
+  148  vim service2.yml 
+  149  kubectl create -f service2.yml 
+  150  kubectl get svc
+  151  kubectl desccribe pods pod2
+  152  kubectl describe pods pod2
+  153  kubectl get svc
+  154  kubectl delete svc
+  155  kubectl delete ecpose2
+  156  kubectl delete expose2
+  157  kubectl delete svc expose2
+  158  kubectl get pods
+  159  kubectl delete pod pod2
+  160  vim deployment.yml
+  161  kubectl create -f deployment.yml 
+  162  vim deployment.yml
+  163  kubectl create -f deployment.yml 
+  164  kubectl create -f deployment.yml
+  165  vim deployment.yml
+  166  kubectl create -f deployment.yml
+  167  vim deployment.yml
+  168  kubectl create -f deployment.yml
+  169  vim deployment.yml
+  170  kubectl create -f deployment.yml
+  171  vim deployment.yml
+  172  kubectl create -f deployment.yml
+  173  cat deployment.yml 
+  174  vim deployment.yml
+  175  kubectl create -f deployment.yml
+  176  cat deployment.yml 
+  177  vim deployment.yml 
+  178  kubectl create -f deployment.yml
+  179  kubectl get pods
+  180  cat deployment.yml 
+  181  vim deploymentexpose.yml 
+  182  cat deployment.yml 
+  183  vim deploymentexpose.yml 
+  184  kubectl create -f deploymentexpose.yml 
+  185  vim deploymentexpose.yml 
+  186  kubectl create -f deploymentexpose.yml
+  187  kubectl describe pods
+  188  kubectl create -f deploymentexpose.yml
+  189  kubectl describe pods
+  190  kubectl get svc clusterip
+  191  cat deploymentexpose.yml 
+  192  kubectl get pods
+  193  kubectl get deployments
+  194  kubectl describe deployments
+  195  kubectl delete deployments nginx-deployment
+  196  kubectl get pods
+  197  kubectl get deployments
+  198  kubectl get pods
+  199  cat deploymentexpose.yml 
+  200  vim deployment.yml 
+  201  kubectl create deployment.yml 
+  202  kubectl create -f deployment.yml 
+  203  vim deployment.yml 
+  204  kubectl get rs
+  205  kubectl get pods
+  206  kubectl get nodes
+  207  ls
+  208  exit
+  209  ls
+  210  cd manifest/
+  211  ls
+  212  cat service
+  213  cat service.`
+  214  cat service.yml 
+  215  ls
+  216  vim volume.yml\
+  217  ls
+  218  vim volume.yml
+  219  ls
+  220  kubectl create -f volume.yml 
+  221  vim volume.yml
+  222  cat volume.yml 
+  223  vim volume.yml
+  224  kubectl create -f volume.yml 
+  225  ls
+  226  cat pod.yml 
+  227  cat volume.yml 
+  228  vim volume.yml 
+  229  kubectl create -f volume.yml 
+  230  vim volume.yml 
+  231  kubectl create -f volume.yml 
+  232  vim volume.yml 
+  233  kubectl create -f volume.yml 
+  234  vim volume.yml 
+  235  kubectl create -f volume.yml 
+  236  cat volume.yml 
+  237  vim volume.yml 
+  238  kubectl create -f volume.yml 
+  239  kubectl create -f volume.yml --validate=false
+  240  kubectl create -f volume.yml 
+  241  vim volume.yml 
+  242  kubectl create -f volume.yml 
+  243  cat volume.yml 
+  244  vim volume.yml 
+  245  kubectl create -f volume.yml 
+  246  kubectl get nodes
+  247  kubectl get pods
+  248  kubectl get pods 
+  249  cd /var/lib/
+  250  ls
+  251  cd d
+  252  cd docker
+  253  ls
+  254  cd volumes/
+  255  ls
+  256  cd backingFsBlockDev 
+  257  kubectrl get pods
+  258  kubectrl get pod
+  259  kubectl get pods
+  260  kubectl describe pod
+  261  ls
+  262  cd /home/ubuntu/
+  263  cd manifest/
+  264  LS
+  265  ls
+  266  cd /tmp/
+  267  ls
+  268  kubectl get pod -o wide --all-namespace
+  269  kubectl get pods -o wide --all-namespace
+  270  kubectl get pods -o wide --all-namespaces
+  271  kubectl get pods
+  272  kubectl get svc -o wide --all-namespaces
+  273  kubectl delete deployment
+  274  kubectl delete deployment expose-deployment
+  275  ls
+  276  kubectl get deployments
+  277  kubectl get svc
+  278  kubectl delete svc expose-deployment
+  279  kubectl get svc
+  280  kubectl get pods
+  281  kubectl delete pods pod
+  282  kubectl get pods
+  283  ll
+  284  cat @
+  285  ll
+  286  git --version
+  287  git puxh
+  288  git push
+  289  mv @ volume2.yml
+  290  ll
+  291  git init
+  292  git push
+  293  git push divs1994
+  294  git remote add https://github.com/Divs1994/kubernetes.git
+  295  git remote add origin https://github.com/Divs1994/kubernetes.git
+  296  git push
+  297  ls
+  298  git add all
+  299  git add -A
+  300  git statusd
+  301  git status
+  302  git commit -m "Kubernetes"
+  303  git status
+  304  git lsfiles
+  305  git ls-files
+  306  git push
+  307  git push all
+  308  git push origin 
+  309  git push origin master
+  310  exit
+  311  history
+  312  history > commands
